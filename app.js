@@ -3,7 +3,7 @@ addEmployee,
 internPrompt,
 engineerPrompt,
 managerPrompt,
-} = require("./prompts");
+} = require("./prompt");
 
 managerPrompt().then(function (manager) {
   //build a manager object, and push into employees array

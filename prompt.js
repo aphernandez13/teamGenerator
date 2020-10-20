@@ -36,7 +36,7 @@ function engineerPrompt() {
         name: "email",
       },
       {
-        message: "What is your managers github?",
+        message: "What is your engineers github?",
         name: "github",
       },
     ]);
