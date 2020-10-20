@@ -8,7 +8,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-const team = []
+const employees = []
 
 const {
   addEmployee,
@@ -18,7 +18,7 @@ const {
 } = require("./prompt");
 
 managerPrompt().then(function (manager) {
-  team.push(
+  employees.push(
     new Manager(manager.name, manager.id, manager.email, manager.officeNumber)
   );
 
@@ -31,7 +31,7 @@ function main() {
     if (engineerOrIntern === "Engineer") {
       //prompt for engineer details
       engineerPrompt().then(function (engineer) {
-        team.push(
+       employees.push(
           new Engineer(engineer.name, engineer.id, engineer.email, engineer.github)
         );
         console.log(engineer);
@@ -40,7 +40,7 @@ function main() {
     } else if (engineerOrIntern === "Intern") {
       //prompt for intern info
       internPrompt().then(function (intern) {
-        team.push(
+        employees.push(
           new Intern(intern.name, intern.id, intern.email, intern.school)
         );
         console.log(intern);
@@ -49,8 +49,8 @@ function main() {
     } else {
       //write to file
 
-      const team = render(team);
-      fs.writeFile("main.html", team, function (err) {
+      const peoples = render(employees);
+      fs.writeFile("main.html", peoples, function (err) {
         if (err) {
           throw err;
         }
